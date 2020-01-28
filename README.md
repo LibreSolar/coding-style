@@ -7,7 +7,8 @@ The coding style for Libre Solar firmware mostly follows the [K&R Style](https:/
 - No space before opening brace of function: `void foo(int arg);`
 - One space after `if`, `for`, `while` and `switch` statements.
 - Always use curly braces for `if` and `for` statements, even for one line.
-- Curly braces for functions start in next line, for flow statements (`if`, `while`, `switch`, `for`) in the same line.
+- Curly braces for functions and classes start in next line, for flow statements (`if`, `while`, `switch`, `for`) in the same line.
+- Access modifiers in C++ classes (`public`, `private`, `protected`) are not indented.
 - Maximum line length of 100 characters
 - No spaces at end of a line or in an empty line
 - One empty new-line at the end of the file
@@ -27,12 +28,13 @@ The coding style for Libre Solar firmware mostly follows the [K&R Style](https:/
 - C++/C99-style comments `//` are allowed
 - Expressions behind defines must be enclosed in braces, e.g. `#define (3*1034)`
 - Comments should be in Doxygen style where applicable.
+- Order of includes (see also [here](https://google.github.io/styleguide/cppguide.html#Names_and_Order_of_Includes)): Related header, C system headers, C++ standard library headers, other project headers.
 
 ## Example
 
 Header file `example.h`
 
-```C
+```C++
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
 
@@ -50,21 +52,43 @@ enum MyState {
 }
 
 /**
+ * Description of MyClass
+ */
+class MyClass
+{
+public:
+    MyClass();
+    
+private:
+    /**
+     * Description of member function.
+     */
+    void member_func(char c);
+
+    /**
+     * This variable is used for foo.
+     */
+    int member_var;
+}
+
+/**
  * State machine of this nice embedded hardware
  *
  * @param buf Some description here
  * @param foo Meaning of this variable here
  */
-void state_machine(Buffer *buf, int foo)
+void state_machine(Buffer *buf, int foo);
 
 #endif /* EXAMPLE_H */
 
 ```
 
-Implementation file `example.c`
+Implementation file `example.cpp`
 
-```C
+```C++
 #include "example.h"
+
+#include <stdint.h>
 
 static MyState current_state;
 
