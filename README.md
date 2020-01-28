@@ -9,6 +9,7 @@ The coding style for Libre Solar firmware mostly follows the [K&R Style](https:/
 - Always use curly braces for `if` and `for` statements, even for one line.
 - Curly braces for functions and classes start in next line, for flow statements (`if`, `while`, `switch`, `for`) in the same line.
 - Access modifiers in C++ classes (`public`, `private`, `protected`) are not indented.
+- Precompiler statemens (`#define`, `#ifdef`, etc.) are not indented.
 - Maximum line length of 100 characters
 - No spaces at end of a line or in an empty line
 - One empty new-line at the end of the file
