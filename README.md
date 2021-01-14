@@ -95,7 +95,7 @@ static MyState current_state;
 
 void state_machine(Buffer *buf, int foo)
 {
-    switch(current_state) {
+    switch (current_state) {
         case STATE_ON:
             do_something();
             break;
