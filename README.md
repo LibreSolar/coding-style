@@ -1,4 +1,8 @@
+# Libre Solar Coding Style
+
 The coding style for Libre Solar firmware mostly follows the [K&R Style](https://en.wikipedia.org/wiki/Indentation_style#K.26R_style).
+
+This repository contains a [Clang-format](https://clang.llvm.org/docs/ClangFormat.html) file which can be used to format the code automatically based on below rules.
 
 ## General rules
 
@@ -42,14 +46,16 @@ Header file `example.h`
 /**
  * Character buffer to store strings incl. their maximum size
  */
-typdedef struct {
+typdedef struct
+{
     char *str;      ///< Pointer to string in memory
     size_t size;    ///< Maximum size of buffer
-} Buffer
+} Buffer;
 
-enum MyState {
+enum MyState
+{
     STATE_ON,
-    STATE_OFF
+    STATE_OFF,
 }
 
 /**
@@ -59,7 +65,7 @@ class MyClass
 {
 public:
     MyClass();
-    
+
 private:
     /**
      * Description of member function.
